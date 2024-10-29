@@ -2,6 +2,12 @@ pipeline {
     agent any
 
     stages {
+        stage('CleanUp') {
+            steps {
+                echo 'CleanUp stage'
+            }
+        }
+
         stage('Build') {
             agent {
                 docker {
@@ -26,5 +32,8 @@ pipeline {
                 echo 'Test stage'
             }
         }
+
+
+
     }
 }
