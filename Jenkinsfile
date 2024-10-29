@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('CleanUp') {
-            steps {
-                cleanWs()
-            }
-        }
-
         stage('Build') {
             agent {
                 docker {
@@ -29,7 +23,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'Test stage'
+                test -f build/index.html
             }
         }
 
